@@ -3,17 +3,39 @@
     <title>WPI-CSV Reader</title>
     <meta description="Read and visualize WPIlog files">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/table.css">
     
-    <!-- scripts !-->
+    <!-- header scripts !-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   </head>
   <body>
-    <textarea cols="30" id="csvin"></textarea><button onclick="readCsv()">Read CSV</button>
-    <hr>
-    <div id="output"></div>
+    <header>
+      <div id="header-title">
+        <h1>WPI-CSV Reader</h1>
+      </div>
+  
+      <input type="file" id="csvin_file" accept=".csv">
+      <button class="tab-button" id="tab-options">File</button>
+      <button class="tab-button" id="tab-options">Options</button>
+      <div id="tab">
+
+      </div>
+    </header>
+    <div id="status" class="status-ready">
+      Awaiting commands...
+    </div>
+
+    <div id="main">
+      <div id="output"></div>
+    </div>
     
-    <script src="script.js"></script>
+    <!-- main scripts -->
+    <script src="utils/constants.js"></script>
+    <script src="utils/status.js"></script>
+
+    <script src="main/script.js"></script>
   </body>
 </html>

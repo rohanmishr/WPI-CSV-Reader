@@ -1,12 +1,19 @@
 table{
   border: 1px solid blue;
+  font-family: "BlinkMacSystemFont", "San Francisco";
 }
+
 th{
   border: 1px solid blue;
 }
+
 tr{
   border: 1px solid blue;
 }
+
 td{
   border: 1px solid blue;
+  height: 15px;
+  width: 15px;
+  overflow: hidden;
 }

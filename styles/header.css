@@ -1,0 +1,53 @@
+header{
+    width: 100vw;
+    height: var(--header-height);
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    border: 1px solid var(--header-border-color);
+    display: block;
+}
+#header-title{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    height: var(--header-height)
+}
+#header-title h1{
+    font-size: 1.5vw;
+}
+.tab-button{
+    width: 10vw;
+    height: var(--header-height);
+    display: inline;
+    float: left;
+    border-radius: none;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    border: 1px solid var(--header-border-color);
+    font-family: "BlinkMacSystemFont", "San Francisco";
+    font-size: 1vw;
+}
+#status{
+    background-color: black;
+    float: top;
+    display: flex;
+    align-items:center;
+    padding-left: 10px;
+    height: calc(var(--header-height) / 3);
+    text-align: left;
+}
+.status-ready{
+    color: lime;
+}
+.status-loading{
+    color: gray;
+}
+.status-warning{
+    color: yellow;
+}
+.status-error{
+    color: red;
+}
