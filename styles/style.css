@@ -20,5 +20,9 @@ body{
     background-color: var(--background-color);
 }
 #main{
-    
+    float: top;
+}
+#output{
+    padding: 0;
+    margin: 0;
 }

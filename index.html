@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
     
     <!-- header scripts !-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -25,12 +26,21 @@
 
       </div>
     </header>
-    <div id="status" class="status-ready">
-      Awaiting commands...
-    </div>
 
     <div id="main">
-      <div id="output"></div>
+      <div id="output">
+        <div id="sidebar">
+          <button onclick="toggle('odometry')">Odometry</button>
+        </div>
+        <div id="output-display">
+          <div id="status" class="status-ready">
+            Awaiting commands...
+          </div>
+          <div id="odometry">
+            <h1>Odometry</h1>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- main scripts -->
@@ -39,5 +49,6 @@
 
     <script src="main/file_handlers/csv.js"></script>
     <script src="main/file_handlers/wpilog.js"></script>
+    <script src="main/front/sidebar.js"></script>
   </body>
 </html>

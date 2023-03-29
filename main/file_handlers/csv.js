@@ -3,7 +3,24 @@ console.clear();
 var iterations = 0;
 var maxIterations = 999;
 var data;
-//output CSV in table format
+
+//1. Read CSV file
+function readCsvFile(){
+  stat.set("INITIALIZING: Read CSV file...", LOADING);
+  var file = $("#csvin_file")[0].files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    data = Papa.parse(e.target.result, { header: true });
+    generateTable(data.meta.fields, data.data);
+
+    //data gets go here
+    getOdometryData();
+    stat.set("CSV file read.", READY);
+  }
+  reader.readAsText(file);
+}
+
+//2. Output CSV in table format
 function generateTable(columns, rows) {
   iterations = 0;
   stat.set("Generating table...", LOADING);
@@ -50,20 +67,15 @@ function generateTable(columns, rows) {
   result = result.replace("@body", body);
 
   console.log(result);
-  $("#output")[0].innerHTML = result;
+  $("#output-display")[0].innerHTML = result;
 }
 
-
-function readCsvFile(){
-  stat.set("INITIALIZING: Read CSV file...", LOADING);
-  var file = $("#csvin_file")[0].files[0];
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    data = Papa.parse(e.target.result, { header: true });
-    generateTable(data.meta.fields, data.data);
-    stat.set("CSV file read.", READY);
-  }
-  reader.readAsText(file);
+//3. Get odometry data
+var odometry = [];
+function getOdometryData(){
+  data.data.forEach((row) => {
+    odometry.push(row['/RealOutputs/odometry'])
+  });
 }
 
 $("#csvin_file")[0].addEventListener("change", readCsvFile);
